@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function(){
     let currentSlide = 0;
     const heading = document.querySelector('h1');
     const paragraph = document.querySelector('.discover p');
+    
 
     function updateSlide(){
         heading.textContent = slides[currentSlide].heading;
@@ -44,4 +45,29 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
     updateSlide();
+
+    function updateSlides(event) {
+        if (event.matches) {
+
+            slides[0].image = "./images/mobile-image-hero-1.jpg";
+            slides[1].image = "./images/mobile-image-hero-2.jpg";
+            slides[2].image = "./images/mobile-image-hero-3.jpg";
+            
+        } else {
+            slides[0].image = "./images/desktop-image-hero-1.jpg";
+            slides[1].image = "./images/desktop-image-hero-2.jpg";
+            slides[2].image = "./images/desktop-image-hero-3.jpg";
+            
+        }
+    
+    }
+    
+
+    const mediaQuery = window.matchMedia("(max-width: 600px)");
+
+    mediaQuery.addListener(updateSlides);
+
+    updateSlides(mediaQuery);
 })
+
+
