@@ -70,4 +70,21 @@ document.addEventListener("DOMContentLoaded", function(){
     updateSlides(mediaQuery);
 })
 
+const mobileMenu = document.querySelector('.mobile-menu');
+const ul = document.querySelector('nav ul');
+const nav = document.querySelector('nav')
+const logo = document.querySelector('.logo')
+mobileMenu.addEventListener('click', function () {
+    ul.classList.toggle('active')
+    mobileMenu.classList.toggle('active')
+    if (mobileMenu.classList.contains('active')){
+        nav.style.backgroundColor = 'white'
+        logo.style.display = 'none'
+    } else{
+        nav.style.backgroundColor = 'transparent'
+        logo.style.display = 'flex'
+    }
+    
+})
+
 
